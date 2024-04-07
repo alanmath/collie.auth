@@ -1,1 +1,1 @@
-# platform.241.collie.auth
+# collie.auth
