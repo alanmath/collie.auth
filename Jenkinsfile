@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Assumindo que o Dockerfile está no diretório atual e que a imagem é nomeada conforme o ID do build
-                    dockerImage = docker.build("myapp:${env.BUILD_ID}")
+                    dockerImage = docker.build("alanmath/account:${env.BUILD_ID}")
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Trivy scan command with JSON format output
-                    sh "trivy image --format json --output trivy_report.json myapp:${env.BUILD_ID}"
+                    sh "trivy image --format json --output trivy_report.json alanmath/account:${env.BUILD_ID}"
                     // Print the Trivy scan JSON results
                     sh "cat trivy_report.json"
                 }
